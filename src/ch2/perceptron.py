@@ -45,6 +45,8 @@ class Perceptron(object):
 
         """
         rgen = np.random.RandomState(self.random_state)
+        # normal: 正規分布に従った乱数を生成する
+        # loc: 平均、scale: 標準偏差、size: 生成要素数
         self.w_ = rgen.normal(loc=0.0, scale=0.01, size=1 + X.shape[1])
         self.errors_ = []
 
@@ -54,6 +56,7 @@ class Perceptron(object):
                 update = self.eta * (target - self.predict(xi))
                 self.w_[1:] += update * xi
                 self.w_[0] += update
+                # int(True) => 1, int(False) => 0
                 errors += int(update != 0.0)
             self.errors_.append(errors)
         return self
@@ -65,8 +68,3 @@ class Perceptron(object):
     def predict(self, X):
         """Return class label after unit step"""
         return np.where(self.net_input(X) >= 0.0, 1, -1)
-
-
-v1 = np.array([1, 2, 3])
-v2 = 0.5 * v1
-np.arccos(v1.dot(v2) / (np.linalg.norm(v1) * np.linalg.norm(v2)))
