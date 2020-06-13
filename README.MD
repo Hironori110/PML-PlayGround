@@ -13,3 +13,7 @@ Python Machine Learning のコードを試すためのレポジトリ
 各列名の意味は、以下参照。
 <http://baseballmonster.nobody.jp/major/score.html>
 <http://baseballmonster.nobody.jp/major/score2.html>
+
+## メモ
+
+- ch5 では、他に t-SNE などもある。別途実施予定。
